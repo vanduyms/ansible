@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'willhallonline/ansible'
-            args '-u root
+            args '-u root'
         }
     }
     stages {
