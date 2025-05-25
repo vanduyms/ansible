@@ -2,6 +2,14 @@
 - name: Demo playbook
   hosts: localhost
   tasks:
-    - name: Print message
-      debug:
-        msg: "Ansible is done!"
+    - name: Clone app from git
+      git:
+        repo: 'https://github.com/vanduyms/trello'
+        path: '~/home/Desktop/app'
+        clone: yes
+        update: yes
+    - name: add .env file to backend
+      copy:
+        src: '~/.env'
+        dest: '~/home/Desktop/app/trello/backend'
+        mode: '0644'
