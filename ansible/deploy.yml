@@ -10,7 +10,7 @@
         update: yes
     - name: add .env file to backend
       copy:
-        src: '/ansible/app/.env'
+        src: '/ansible/.env'
         dest: '/ansible/app/trello/backend'
         mode: '0644'
     - name: Build and start the backend
