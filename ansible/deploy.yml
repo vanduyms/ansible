@@ -13,3 +13,10 @@
         src: '/home/.env'
         dest: '/home/vanduyms/Desktop/app/trello/backend'
         mode: '0644'
+    - name: Read .env file and echo content
+      command: "cat /home/.env"
+      register: env_file_content
+
+    - name: Echo the content of the .env file
+      debug:
+        msg: "{{ env_file_content.stdout }}"
