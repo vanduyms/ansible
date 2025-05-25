@@ -9,8 +9,8 @@ pipeline {
         stage('Install Node.js') {
             steps {
                 sh '''
-                    apt-get update
-                    apt-get install -y nodejs
+                    apk update
+                    apk add nodejs npm
                 '''
             }
         }
