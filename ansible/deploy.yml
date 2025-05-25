@@ -10,6 +10,6 @@
         update: yes
     - name: add .env file to backend
       copy:
-        src: '/home/vanduyms/.env'
+        src: '/home/.env'
         dest: '/home/vanduyms/Desktop/app/trello/backend'
         mode: '0644'
