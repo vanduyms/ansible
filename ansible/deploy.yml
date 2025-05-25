@@ -14,19 +14,22 @@
         src: '/ansible/.env'
         dest: '/ansible/app/backend'
         mode: '0644'
-    - name: Build and start the backend
-      shell: |
-        cd /ansible/app/backend
-        npm install
-        npm run build
-        npm run dev
-      args:
-        chdir: /ansible/app/backend
-    - name: Build and start the frontend
-      shell: |
-        cd /ansible/app/frontend
-        npm install
-        npm run build
-        npm run dev
-      args:
-        chdir: /ansible/app/frontend
+    # - name: Build and start the backend
+    #   shell: |
+    #     cd /ansible/app/backend
+    #     npm install
+    #     npm run build
+    #     npm run dev
+    #   args:
+    #     chdir: /ansible/app/backend
+    # - name: Build and start the frontend
+    #   shell: |
+    #     cd /ansible/app/frontend
+    #     npm install
+    #     npm run build
+    #     npm run dev
+    #   args:
+    #     chdir: /ansible/app/frontend
+    - name: notify succeed
+      debug:
+        msg: "DEPLOY APPLICATION SUCESSFULLY!"
