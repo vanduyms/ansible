@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'willhallonline/ansible'
-            args '-u root -v $HOME/.env:/home/.env'
+            args '-u root -v $HOME/.env:/home/vanduyms/app/.env'
         }
     }
     stages {
