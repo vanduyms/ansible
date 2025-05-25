@@ -5,7 +5,8 @@ pipeline {
             args '-u root -v /home/vanduyms/.env:/ansible/.env'
         }
     }
-    stage('Install Node.js') {
+    stages {
+        stage('Install Node.js') {
             steps {
                 sh '''
                     apt-get update
@@ -13,7 +14,6 @@ pipeline {
                 '''
             }
         }
-    stages {
         stage('Run ansible') {
             steps {
                 sh 'ansible-playbook -i ansible/inventory.ini ansible/deploy.yml'
