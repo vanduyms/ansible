@@ -8,15 +8,24 @@
         dest: '/home/vanduyms/Desktop/app'
         clone: yes
         update: yes
-    # - name: add .env file to backend
-    #   copy:
-    #     src: '/root/.env'
-    #     dest: '/home/vanduyms/Desktop/app/trello/backend'
-    #     mode: '0644'
-    - name: Read .env file and echo content
-      command: "cat /ansible/.env"
-      register: env_file_content
-
-    - name: Echo the content of the .env file
-      debug:
-        msg: "{{ env_file_content.stdout }}"
+    - name: add .env file to backend
+      copy:
+        src: '/ansible/.env'
+        dest: '/home/vanduyms/Desktop/app/trello/backend'
+        mode: '0644'
+    - name: Build and start the backend
+      shell: |
+        cd /home/vanduyms/Desktop/app/trello/backend
+        npm install
+        npm run build
+        npm run dev
+      args:
+        chdir: /home/vanduyms/Desktop/app/trello/backend
+    - name: Build and start the frontend
+      shell: |
+        cd /home/vanduyms/Desktop/app/trello/frontend
+        npm install
+        npm run build
+        npm run dev
+      args:
+        chdir: /home/vanduyms/Desktop/app/trello/frontend
