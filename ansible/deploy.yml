@@ -5,27 +5,27 @@
     - name: Clone app from git
       git:
         repo: 'https://github.com/vanduyms/trello'
-        dest: '/home/vanduyms/Desktop/app'
+        dest: '/ansible'
         clone: yes
         update: yes
     - name: add .env file to backend
       copy:
         src: '/ansible/.env'
-        dest: '/home/vanduyms/Desktop/app/trello/backend'
+        dest: '/ansible/trello/backend'
         mode: '0644'
     - name: Build and start the backend
       shell: |
-        cd /home/vanduyms/Desktop/app/trello/backend
+        cd /ansible/trello/backend
         npm install
         npm run build
         npm run dev
       args:
-        chdir: /home/vanduyms/Desktop/app/trello/backend
+        chdir: /ansible/trello/backend
     - name: Build and start the frontend
       shell: |
-        cd /home/vanduyms/Desktop/app/trello/frontend
+        cd /ansible/trello/frontend
         npm install
         npm run build
         npm run dev
       args:
-        chdir: /home/vanduyms/Desktop/app/trello/frontend
+        chdir: /ansible/trello/frontend
