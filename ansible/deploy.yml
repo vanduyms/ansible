@@ -5,7 +5,7 @@
     - name: Clone app from git
       git:
         repo: 'https://github.com/vanduyms/trello'
-        dest:: '~/home/Desktop/app'
+        dest: '~/home/Desktop/app'
         clone: yes
         update: yes
     - name: add .env file to backend
