@@ -8,6 +8,14 @@
         dest: '/ansible/app'
         clone: yes
         update: yes
+    - name: Debug directory structure
+      command: ls -l /ansible/app
+      register: ls_result
+
+    - name: Show directory contents
+      debug:
+        var: ls_result.stdout
+
     - name: add .env file to backend
       copy:
         src: '/ansible/.env'
